@@ -132,7 +132,12 @@ func isCycle(labGrid [][]rune, startPos [2]int) bool {
 
 func getMinObstacleCount(labGrid [][]rune, startPos [2]int) int {
 	gridCopy := make([][]rune, len(labGrid))
-	copy(gridCopy, labGrid)
+
+	for i := range labGrid {
+		gridCopy[i] = make([]rune, len(labGrid[i]))
+		copy(gridCopy[i], labGrid[i])
+	}
+
 	obstacleCount := 0
 
 	for i := range gridCopy {
